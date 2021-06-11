@@ -100,22 +100,22 @@ dictionaryBadWords.set("youpine", "🌸");
 
 let regexBadWords = new Map();
 
-// //function that replaces letters with accents
-// String.prototype.sansAccents = function () {
-//   return this.replace(/[ùûü]/g, "u")
-//     .replace(/[îï]/g, "i")
-//     .replace(/[àâä]/g, "a")
-//     .replace(/[ôö]/g, "o")
-//     .replace(/[éèêë]/g, "e")
-//     .replace(/ç/g, "c");
-// };
+//function that replaces letters with accents
+String.prototype.sansAccents = function () {
+  return this.replace(/[ùûü]/g, "u")
+    .replace(/[îï]/g, "i")
+    .replace(/[àâä]/g, "a")
+    .replace(/[ôö]/g, "o")
+    .replace(/[éèêë]/g, "e")
+    .replace(/ç/g, "c");
+};
 
-// for (let element of dictionaryBadWords.keys()) {
-//   regexBadWords.set(
-//     element,
-//     new RegExp("\\b" + element.sansAccents() + "\\b", "gi")
-//   );
-// }
+for (let element of dictionaryBadWords.keys()) {
+  regexBadWords.set(
+    element,
+    new RegExp("\\b" + element.sansAccents() + "\\b", "gi")
+  );
+}
 
 browser.runtime.onMessage.addListener(handleMessage);
 
